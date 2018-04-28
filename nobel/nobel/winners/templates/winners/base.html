@@ -3,7 +3,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nobel Winners</title>
+    <title>Wind Data</title>
+    <div id="chart"></div>
    <!--<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">-->
    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css">-->
    <!--<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/superhero/bootstrap.min.css" rel="stylesheet">-->
@@ -20,7 +21,7 @@
             {% block header %}
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="display-4">Nobel Winners</h1>
+                        <h1 class="display-4">Wind Data</h1>
                     </div>
                 </div>
             {% endblock %}
@@ -39,6 +40,8 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.4/c3.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" />
     {% block script %}{% endblock %}
   </body>
 </html>

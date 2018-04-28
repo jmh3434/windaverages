@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}  
+    <div id="chart">this is my chart</div>
     <div class="row">
         <div class="col-4">
             <div class="card">
@@ -47,12 +48,8 @@
     <hr>
     <div class="row">
         <div class="col-4">
-            <h4>Category</h4>
-            <select name="category" id="sel-category">
-                    <option value="">All</option>
-                {% for category in categories %}
-                    <option value="{{ category.name }}">{{ category.name }}</option>
-                {% endfor %}
+            <h4>Wind Speed</h4>
+            <select name="chart" id="chart">
             </select>
         </div>
         <div class="col-4">
