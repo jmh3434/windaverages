@@ -51,26 +51,33 @@ function initBar(config) {
             }
 
            // console.log(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)
-          //  console.log("arraySpeed is:",arraySpeed[0])
-
-            
-            
+           console.log("arraySpeed is:",arraySpeed)
 
 
 
-
-        
 
         var chart = c3.generate({
-    bindto: '#chart',
     data: {
-      columns: [
-        ['speed',arraySpeed],
-       // ['data1', 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
-      ]
+        columns: [
+            //['time',1,2,3,4,5],
+            ['data1', arraySpeed[0],arraySpeed[1],arraySpeed[2],arraySpeed[3],arraySpeed[4],arraySpeed[5],arraySpeed[6],
+             arraySpeed[7],arraySpeed[8],arraySpeed[9],arraySpeed[10]]
+
+
+        ],
+        type: 'bar',
+        types: {
+            data3: 'spline',
+            data1: 'line',
+            data6: 'area',
+        },
+        groups: [
+            ['data1','data2']
+        ]
     }
 });
 
+  
         
 
 
