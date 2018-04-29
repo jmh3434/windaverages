@@ -13,6 +13,7 @@ function initBar(config) {
         // time would be x axis 
         var arrayTime = []
         var arraySpeed = []
+        var dateObjects = []
 
         var length = Object.keys(configData).length
 
@@ -35,7 +36,9 @@ function initBar(config) {
                    timeValue = x[key]["time"]
 
                    var dateObjectTime =  new Date(timeValue)
-                   console.log("dateObjectTime",dateObjectTime)
+                  // console.log("dateObjectTime",dateObjectTime)
+
+                   dateObjects.push(dateObjectTime)
                    var dateHour = dateObjectTime.getHours()
 
                    arrayTime.push(dateHour)
@@ -54,6 +57,7 @@ function initBar(config) {
            // console.log(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)
            //console.log("arraySpeed is:",arraySpeed)
 
+           console.log("dateObjects array:",dateObjects)
 
 
 
