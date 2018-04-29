@@ -1,11 +1,10 @@
 function initBar(config) {
-    // Render re-renders the bar chart
+
+
     config.bar = {}
 
     config.bar.render = function() {
 
-        //console.log(config.data)
-        //data is in render function
 
         var configData = config.data
 
@@ -14,11 +13,11 @@ function initBar(config) {
         // time would be x axis 
         var arrayTime = []
         var arraySpeed = []
-       // console.log(configData.length)
+
         var length = Object.keys(configData).length
-        //console.log("lenth is:",length)
+
         var x = configData['windaverages']
-        //console.log(x)
+
         var speedValue;
         var timeValue;
 
@@ -34,30 +33,26 @@ function initBar(config) {
                    //console.log("timestamp",key, x[key]["time"]);
                    speedValue = x[key]["speed"]
                    timeValue = x[key]["time"]
-                   arrayTime.push(speedValue)
-                   arraySpeed.push(timeValue)
+
+                   var dateObjectTime =  new Date(timeValue)
+                   var dateHour = dateObjectTime.getHours()
+
+                   arrayTime.push(dateHour)
+
+                   arraySpeed.push(speedValue)
+
+
+
+
 
                });
                
 
             }
 
-            var keys = Object.keys(configData);
+           // console.log(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)
+          //  console.log("arraySpeed is:",arraySpeed[0])
 
-            keys.forEach(function(key){
-               //console.log(key, dictionary[key]);
-            });
-
-            console.log("arraytime",arrayTime)
-            console.log("arraySpeed",arraySpeed)            // iterate throught the array, and load up values from the dictionary 
-            
-            // passed a json file that has a date and a value 
-            // 1 is x, 1 is y and it graphs
-            // array(key)= 
-            // outer array
-            // for loop put in the values for speed and time
-            //append it to the outer array 
-               
             
             
 
@@ -67,38 +62,16 @@ function initBar(config) {
         
 
         var chart = c3.generate({
-            //data = config.data
-            
-            data: {
-                columns: [
-                    ['data1', 30, 200, 100, 400, 150, 250],
-                    ['data2', 50, 20, 10, 40, 15, 25]
-                ]
-            }
-            
-        });
+    bindto: '#chart',
+    data: {
+      columns: [
+        ['speed',arraySpeed],
+       // ['data1', 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+      ]
+    }
+});
 
-        setTimeout(function() {
-            chart.load({
-                columns: [
-                    ['data1', 230, 190, 300, 500, 300, 400]
-                ]
-            });
-        }, 1000);
-
-        setTimeout(function() {
-            chart.load({
-                columns: [
-                    ['data3', 130, 150, 200, 300, 200, 100]
-                ]
-            });
-        }, 1500);
-
-        setTimeout(function() {
-            chart.unload({
-                ids: 'data1'
-            });
-        }, 2000);
+        
 
 
 
