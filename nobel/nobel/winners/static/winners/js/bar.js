@@ -9,7 +9,7 @@ function initBar(config) {
         var configData = config.data
 
         // looping over the configData to build the line graph 
-
+        // lol
         // time would be x axis 
         var arrayTime = []
         var arraySpeed = []
