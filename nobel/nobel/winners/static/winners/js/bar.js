@@ -35,6 +35,7 @@ function initBar(config) {
                    timeValue = x[key]["time"]
 
                    var dateObjectTime =  new Date(timeValue)
+                   console.log("dateObjectTime",dateObjectTime)
                    var dateHour = dateObjectTime.getHours()
 
                    arrayTime.push(dateHour)
@@ -51,7 +52,7 @@ function initBar(config) {
             }
 
            // console.log(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)
-           console.log("arraySpeed is:",arraySpeed)
+           //console.log("arraySpeed is:",arraySpeed)
 
 
 
@@ -60,15 +61,17 @@ function initBar(config) {
     data: {
         columns: [
             //['time',1,2,3,4,5],
-            ['data1', arraySpeed[0],arraySpeed[1],arraySpeed[2],arraySpeed[3],arraySpeed[4],arraySpeed[5],arraySpeed[6],
-             arraySpeed[7],arraySpeed[8],arraySpeed[9],arraySpeed[10]]
+            ['speed', arraySpeed[0],arraySpeed[12],arraySpeed[24],arraySpeed[36],arraySpeed[48],arraySpeed[60],arraySpeed[72],
+             arraySpeed[84],arraySpeed[96],arraySpeed[108],arraySpeed[120],arraySpeed[132],arraySpeed[144],arraySpeed[156],
+             arraySpeed[168],arraySpeed[180],arraySpeed[192],arraySpeed[204],arraySpeed[216],arraySpeed[228],arraySpeed[240],
+             arraySpeed[252],arraySpeed[276],arraySpeed[288]]
 
 
         ],
         type: 'bar',
         types: {
             data3: 'spline',
-            data1: 'line',
+            speed: 'line',
             data6: 'area',
         },
         groups: [
