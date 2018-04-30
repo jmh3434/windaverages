@@ -54,16 +54,28 @@ function initBar(config) {
 
             }
 
-           // console.log(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)
-           //console.log("arraySpeed is:",arraySpeed)
 
-           console.log("dateObjects array:",dateObjects)
+          // console.log("dateObjects array:",dateObjects)
+           var i = 0;
 
-
+           var sampleData = [];
+           sampleData.push('speed')
+           sampleData.push(arraySpeed[0])
+           for (i=0;i<=236;i+=12){
+           console.log("i is",i)
+           sampleData.push(arraySpeed[i+12])
+          }
+         // console.log("sampleDatais",sampleData);
 
         var chart = c3.generate({
-    data: {
-        columns: [
+        
+          //sampleData.push(arraySpeed[0]);
+          
+          
+         data: {
+        
+        columns:[sampleData],
+        /*columns: [
             //['time',1,2,3,4,5],
             ['speed', arraySpeed[0],arraySpeed[12],arraySpeed[24],arraySpeed[36],arraySpeed[48],arraySpeed[60],arraySpeed[72],
              arraySpeed[84],arraySpeed[96],arraySpeed[108],arraySpeed[120],arraySpeed[132],arraySpeed[144],arraySpeed[156],
@@ -71,17 +83,27 @@ function initBar(config) {
              arraySpeed[252],arraySpeed[276],arraySpeed[288]]
 
 
-        ],
+        ],*/
         type: 'bar',
         types: {
-            data3: 'spline',
-            speed: 'line',
-            data6: 'area',
+            data3: 'bar',
+            speed: 'bar',
+            data6: 'bar',
         },
         groups: [
-            ['data1','data2']
+            ['speed','data2']
         ]
+
+    },
+    axis: {
+        y: {
+            max: 16,
+            min: 0,
+            // Range includes padding, set 0 if no padding needed
+            // padding: {top:0, bottom:0}
+        }
     }
+
 });
 
   
