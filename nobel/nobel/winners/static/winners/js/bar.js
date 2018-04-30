@@ -36,9 +36,9 @@ function initBar(config) {
         var i = 0;
 
         var sampleData = [];
-        sampleData.push('speed')
+        sampleData.push('Wind Speed For Each Hour')
         sampleData.push(arraySpeed[0])
-        for (i = 0; i <= 284; i += 12) {
+        for (i = 0; i <= 260; i += 12) {
             sampleData.push(arraySpeed[i + 12])
         }
 
@@ -63,10 +63,14 @@ function initBar(config) {
                 x: {
                     min: 24,
                     max: 0,
+
                 },
                 y: {
                     max: 16,
                     min: 0,
+                    tick: { 
+                      fit: true
+                    }
                 }
             }
 
@@ -79,21 +83,31 @@ var chart2 = c3.generate({
     data: {
         columns: [
 
-            ['4', 25, 26, 27, 28],
-            ['6', 22, 23, 24, 25],
-            ['7', 21, 22, 23, 24],
-            ['8', 20, 21, 22, 23],
-            ['9', 17, 18, 19, 20],
-            ['10', 14, 15, 16, 17],
-            ['11', 13, 14, 15, 16],
-            ['12', 12, 13, 14, 15],
-            ['14', 10, 11, 12, 13],
-            ['16', 8, 9, 10, 11],
-            ['18', 7, 8, 9, 10],
+            ['4 meter', 25, 26, 27, 28],
+            ['6 meter', 22, 23, 24, 25],
+            ['7 meter', 21, 22, 23, 24],
+            ['8 meter', 20, 21, 22, 23],
+            ['9 meter', 17, 18, 19, 20],
+            ['10 meter', 14, 15, 16, 17],
+            ['11 meter', 13, 14, 15, 16],
+            ['12 meter', 12, 13, 14, 15],
+            ['14 meter', 10, 11, 12, 13],
+            ['16 meter', 8, 9, 10, 11],
+            ['18 meter', 7, 8, 9, 10],
         ],
         type: 'line',
         groups: [
             ['4', '6,7,8,9,10,11,12,14,16,18']
         ]
-    }
+    },
+    axis: {
+      y: {
+
+                    tick: { 
+                      fit: true
+                    }
+                }
+                
+                
+            }
 });

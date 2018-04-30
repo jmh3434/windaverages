@@ -7,7 +7,7 @@
 
     
 
-   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/simplex/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/superhero/bootstrap.min.css">
 
 
   </head>
@@ -15,11 +15,19 @@
     {% block body %}
      <title>Wind Data</title>
      <h1>Wind Data</h1>
+     <h4>Hourly wind data, so you know which kite to use at what time</h4>
+
+
     
     <div id="chart"></div>
+    <br>
     <center>Before you can kite, you should guage the wind below and use the right kite for the precise wind range</center>
     <div id="chart2"></div>
     <div class="image"></div>​
+   
+    {% load static %}
+    <img src="{% static "/rrd.jpg" %}" alt="My image"/>
+
 
 
       
