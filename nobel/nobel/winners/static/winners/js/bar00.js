@@ -52,11 +52,15 @@ function initBar(config) {
         var maxWinner = d3.max(winners);
         
         // Create our winner count scale
-        var winnerScale = d3.scaleLinear() // linear scale
-            .domain([0, maxWinner])        // of a domain 
-            .range([height, 0])            // ranging from the height down to 0
-            .nice();                       // rounding to a nice even number
+        // var winnerScale = d3.scaleLinear() // linear scale
+        //     .domain([0, 24])        // of a domain 
+        //     .range([0, 24])            // ranging from the height down to 0
+        //     .nice();                       // rounding to a nice even number
         
+        var winnerScale = c3.scaleLinear() // linear scale
+            .domain([0, 24])        // of a domain 
+            .range([0, 24])            // ranging from the height down to 0
+            .nice();                       // rounding to a nice even number
         // Get the width of the bands from the scale
         var bandwidth = nameScale.bandwidth();
 

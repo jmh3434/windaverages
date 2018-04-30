@@ -1,16 +1,8 @@
 function initBar(config) {
-
-
     config.bar = {}
-
     config.bar.render = function() {
-
-
         var configData = config.data
 
-        // looping over the configData to build the line graph 
-        // lol
-        // time would be x axis 
         var arrayTime = []
         var arraySpeed = []
         var dateObjects = []
@@ -22,94 +14,86 @@ function initBar(config) {
         var speedValue;
         var timeValue;
 
-            for (var key in x){
-               // y = speed
-               // x = time
+        for (var key in x) {
+            Object.keys(x).forEach(function(key) {
 
-              // console.log("key",key)
+                speedValue = x[key]["speed"]
+                timeValue = x[key]["time"]
 
+                var dateObjectTime = new Date(timeValue)
 
-               Object.keys(x).forEach(function(key) {
-                   //console.log("windspeeed",key, x[key]["speed"]);
-                   //console.log("timestamp",key, x[key]["time"]);
-                   speedValue = x[key]["speed"]
-                   timeValue = x[key]["time"]
+                dateObjects.push(dateObjectTime)
+                var dateHour = dateObjectTime.getHours()
 
-                   var dateObjectTime =  new Date(timeValue)
-                  // console.log("dateObjectTime",dateObjectTime)
+                arrayTime.push(dateHour)
 
-                   dateObjects.push(dateObjectTime)
-                   var dateHour = dateObjectTime.getHours()
+                arraySpeed.push(speedValue)
 
-                   arrayTime.push(dateHour)
-
-                   arraySpeed.push(speedValue)
+            });
 
 
+        }
+        var i = 0;
 
-
-
-               });
-               
-
-            }
-
-
-          // console.log("dateObjects array:",dateObjects)
-           var i = 0;
-
-           var sampleData = [];
-           sampleData.push('speed')
-           sampleData.push(arraySpeed[0])
-           for (i=0;i<=236;i+=12){
-           console.log("i is",i)
-           sampleData.push(arraySpeed[i+12])
-          }
-         // console.log("sampleDatais",sampleData);
+        var sampleData = [];
+        sampleData.push('speed')
+        sampleData.push(arraySpeed[0])
+        for (i = 0; i <= 284; i += 12) {
+            sampleData.push(arraySpeed[i + 12])
+        }
 
         var chart = c3.generate({
-        
-          //sampleData.push(arraySpeed[0]);
-          
-          
-         data: {
-        
-        columns:[sampleData],
-        /*columns: [
-            //['time',1,2,3,4,5],
-            ['speed', arraySpeed[0],arraySpeed[12],arraySpeed[24],arraySpeed[36],arraySpeed[48],arraySpeed[60],arraySpeed[72],
-             arraySpeed[84],arraySpeed[96],arraySpeed[108],arraySpeed[120],arraySpeed[132],arraySpeed[144],arraySpeed[156],
-             arraySpeed[168],arraySpeed[180],arraySpeed[192],arraySpeed[204],arraySpeed[216],arraySpeed[228],arraySpeed[240],
-             arraySpeed[252],arraySpeed[276],arraySpeed[288]]
+            bindto: '#chart',
 
+            data: {
 
-        ],*/
-        type: 'bar',
-        types: {
-            data3: 'bar',
-            speed: 'bar',
-            data6: 'bar',
-        },
-        groups: [
-            ['speed','data2']
-        ]
+                columns: [sampleData],
+                type: 'bar',
+                types: {
+                    data3: 'bar',
+                    speed: 'line',
+                    data6: 'bar',
+                },
+                groups: [
+                    ['speed', 'data2']
+                ]
 
-    },
-    axis: {
-        y: {
-            max: 16,
-            min: 0,
-            // Range includes padding, set 0 if no padding needed
-            // padding: {top:0, bottom:0}
-        }
-    }
+            },
+            axis: {
+                x: {
+                    min: 24,
+                    max: 0,
+                },
+                y: {
+                    max: 16,
+                    min: 0,
+                }
+            }
 
-});
-
-  
-        
-
-
-
+        });
     }
 }
+
+var chart2 = c3.generate({
+    bindto: '#chart2',
+    data: {
+        columns: [
+
+            ['4', 25, 26, 27, 28],
+            ['6', 22, 23, 24, 25],
+            ['7', 21, 22, 23, 24],
+            ['8', 20, 21, 22, 23],
+            ['9', 17, 18, 19, 20],
+            ['10', 14, 15, 16, 17],
+            ['11', 13, 14, 15, 16],
+            ['12', 12, 13, 14, 15],
+            ['14', 10, 11, 12, 13],
+            ['16', 8, 9, 10, 11],
+            ['18', 7, 8, 9, 10],
+        ],
+        type: 'line',
+        groups: [
+            ['4', '6,7,8,9,10,11,12,14,16,18']
+        ]
+    }
+});
