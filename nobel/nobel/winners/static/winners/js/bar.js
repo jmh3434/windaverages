@@ -19,6 +19,7 @@ function initBar(config) {
 
                 speedValue = x[key]["speed"]
                 timeValue = x[key]["time"]
+                //console.log("time value:",timeValue)
 
                 var dateObjectTime = new Date(timeValue)
 
@@ -38,12 +39,15 @@ function initBar(config) {
         var sampleData = [];
         sampleData.push('Wind Speed For Each Hour')
         sampleData.push(arraySpeed[0])
-        for (i = 0; i <= 260; i += 12) {
-            sampleData.push(arraySpeed[i + 12])
+
+
+        for (i = 0; i <= 284; i += 12) {
+           sampleData.push(arraySpeed[i + 12])
         }
 
         var chart = c3.generate({
             bindto: '#chart',
+
 
             data: {
 
@@ -60,9 +64,14 @@ function initBar(config) {
 
             },
             axis: {
-                x: {
-                    min: 24,
-                    max: 0,
+                x:  {
+
+                    tick: {
+                values: ['0','1', '2','3','4','5','6','7','8','9','10','11','12',
+                '13','14','15','16','17','18','19','20','21','22','23','24']
+
+
+            }
 
                 },
                 y: {
