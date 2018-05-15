@@ -25,7 +25,10 @@ SECRET_KEY = '%z3o1v^kz#ma&%@wqil&2+2m4=h6gg4$=qrh#bd*du!!pq%8oh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = False #[]
+#ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '111.222.333.444', 'codetokite.com']
+
 
 USE_TZ = False
 

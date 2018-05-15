@@ -111,7 +111,6 @@ var chart2 = c3.generate({
     },
     axis: {
       y: {
-
                     tick: { 
                       fit: true
                     }

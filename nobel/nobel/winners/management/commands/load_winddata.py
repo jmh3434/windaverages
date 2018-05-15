@@ -13,7 +13,7 @@ from nobel.winners.models import WindAverage
 # In our case this file is called `load_winners.py` so the command we will use
 # to execute this file is `manage.py load_winners path/to/winners.json`
 class Command(BaseCommand):
-    help = 'Load winner data into the database'
+    #help = 'Load winner data into the database'
 
     # add_arguments lets us specify arguments and options to read from the command
     # line when the command is executed.
@@ -33,18 +33,22 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('Loading JSON from "{}"'.format(json_path)))
         data = json.load(open(json_path))
 
-        #print(data["wind_avg_data"])
+        print(data["wind_avg_data"])
 
         total = len(data["wind_avg_data"])
 
 
         for i, row in enumerate(data["wind_avg_data"]):
-            time = row['time']
-            speed = row['speed']
+
+            time = row[0]
+            speed = row[1]
+
 
             time = (int(time))/1000
 
             pTime = make_aware(datetime.datetime.fromtimestamp(time))
+            print("time ",time)
+            print("speed ",speed)
 
             windaverage, _ = WindAverage.objects.get_or_create(
                 time=pTime,
